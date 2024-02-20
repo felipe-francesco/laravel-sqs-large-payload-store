@@ -1,0 +1,71 @@
+{
+    "name": "felipe-francesco/laravel-sqs-large-payload-store",
+    "description": "Extensions for extending AWS AWS SQS storing payloads which extends size on an storage.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "src/Helpers/bytelength.php"
+        ],
+        "psr-4": {
+            "FelipeFrancesco\\LaravelSQSLargePayload\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]        
+    },
+    "authors": [
+        {
+            "name": "Felipe Francesco P L da Costa",
+            "email": "felipefrancesco@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "aws/aws-sdk-php": "^3.298",
+        "illuminate/queue": "^10.44",
+        "illuminate/support": "^10.44",
+        "infection/infection": "^0.27.9"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true
+        }
+    },
+    "scripts": {
+        "pre-autoload-dump": "Aws\\Script\\Composer\\Composer::removeUnusedServices",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FelipeFrancesco\\LaravelSQSLargePayload\\Providers\\LaravelQueueToStorageDriver"
+            ]
+        },
+        "aws/aws-sdk-php": [
+            "Sqs"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/",
+            "FelipeFrancesco\\LaravelSQSLargePayload\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^9"
+    }
+}
