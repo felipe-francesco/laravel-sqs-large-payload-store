@@ -1,0 +1,25 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "config"
+        ]
+    },
+    "timeout": 10,
+    "logs": {
+        "github": true,
+        "stryker": {
+            "report": "/^release-.*$/"
+        }
+    },
+    "phpUnit": {
+        "customPath": "vendor/bin/phpunit"
+    },
+    "mutators": {
+        "@default": true,
+        "@function_signature": false,
+    },
+    "testFramework": "phpunit"
+}

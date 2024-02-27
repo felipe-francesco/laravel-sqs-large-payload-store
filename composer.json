@@ -43,6 +43,10 @@
         "post-autoload-dump": [
             "@clear",
             "@prepare"
+        ],
+        "test": [
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit",
+            "./vendor/bin/infection --threads=4 --min-msi=100 --min-covered-msi=100"
         ]
     },
     "extra": {

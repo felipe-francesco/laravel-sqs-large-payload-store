@@ -2,3 +2,5 @@
 composer.lock
 /vendor/
 **.DS_STORE
+**.cache**
+clover.xml
