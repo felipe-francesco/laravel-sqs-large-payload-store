@@ -29,11 +29,5 @@ jobs:
       run: composer run-script test
     - uses: actions/labeler@v2
       with:
-        repo-token: ${{ github.token }}
-    - name: Make code coverage badge
-      uses: timkrase/phpunit-coverage-badge@v1.2.1
-      with:
-        coverage_badge_path: output/coverage.svg
-        push_badge: true
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        repo-token: ${{ github.token }}        
         
